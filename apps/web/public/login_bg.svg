@@ -1,0 +1,31 @@
+<svg width="1728" height="1117" viewBox="0 0 1728 1117" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_fn_2035_166)">
+<path d="M1515.39 211.797C982.819 211.797 743.428 -72.7094 626.692 708.908C509.955 1490.53 -978.032 85.7175 -262.012 211.797C454.008 337.877 -24.7731 -40.0694 626.692 -285.314C1278.16 -530.559 2047.97 211.797 1515.39 211.797Z" fill="#8FADF0"/>
+<path d="M1580.49 342.356C1047.91 342.356 808.521 57.8495 691.785 839.467C575.048 1621.08 -912.939 216.276 -196.919 342.356C519.101 468.435 40.3197 90.4894 691.785 -154.755C1343.25 -400 2113.06 342.356 1580.49 342.356Z" fill="#F0D68F"/>
+<path d="M1654.19 481.873C1121.61 481.873 882.221 197.367 765.484 978.984C648.748 1760.6 -839.239 355.794 -123.219 481.873C592.801 607.953 114.02 230.007 765.484 -15.2378C1416.95 -260.483 2186.76 481.873 1654.19 481.873Z" fill="#F0F08F"/>
+<path d="M1692.92 591.423C1160.34 591.423 920.954 306.916 804.217 1088.53C687.481 1870.15 -800.506 465.343 -84.4863 591.423C631.534 717.502 152.753 339.556 804.217 94.3114C1455.68 -150.933 2225.5 591.423 1692.92 591.423Z" fill="#F08F90"/>
+<path d="M1748.87 708.908C1216.29 708.908 976.902 424.402 860.165 1206.02C743.429 1987.64 -744.558 582.829 -28.5384 708.908C687.481 834.988 208.701 457.042 860.165 211.797C1511.63 -33.4478 2281.44 708.908 1748.87 708.908Z" fill="#8FADF0"/>
+<path d="M1872.2 839.467C1339.63 839.467 1100.24 554.961 983.5 1336.58C866.764 2118.2 -621.224 713.387 94.7962 839.467C810.816 965.547 332.035 587.601 983.5 342.356C1634.96 97.111 2404.78 839.467 1872.2 839.467Z" fill="#A18FF0"/>
+<path d="M1982 978.984C1449.42 978.984 1210.03 694.478 1093.3 1476.1C976.56 2257.71 -511.427 852.905 204.593 978.984C920.613 1105.06 441.832 727.118 1093.3 481.873C1744.76 236.628 2514.58 978.984 1982 978.984Z" fill="#8FF0C2"/>
+<path d="M2061 1088.53C1528.42 1088.53 1289.03 804.027 1172.3 1585.64C1055.56 2367.26 -432.427 962.454 283.593 1088.53C999.613 1214.61 520.832 836.667 1172.3 591.422C1823.76 346.178 2593.58 1088.53 2061 1088.53Z" fill="#8FADF0"/>
+</g>
+<defs>
+<filter id="filter0_fn_2035_166" x="-656" y="-535" width="3095.13" height="2558.63" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_2035_166"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.66666668653488159 0.66666668653488159" stitchTiles="stitch" numOctaves="3" result="noise" seed="6204" />
+<feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise" />
+<feComponentTransfer in="alphaNoise" result="coloredNoise1">
+<feFuncA type="discrete" tableValues="1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+</feComponentTransfer>
+<feComposite operator="in" in2="effect1_foregroundBlur_2035_166" in="coloredNoise1" result="noise1Clipped" />
+<feFlood flood-color="rgba(0, 0, 0, 0.25)" result="color1Flood" />
+<feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1" />
+<feMerge result="effect2_noise_2035_166">
+<feMergeNode in="effect1_foregroundBlur_2035_166" />
+<feMergeNode in="color1" />
+</feMerge>
+</filter>
+</defs>
+</svg>
