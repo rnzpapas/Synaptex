@@ -11,7 +11,7 @@ export default function AuthHeader(
     return (
         <FieldSet className="flex flex-col !gap-y-[18px]">
             <FieldLegend className="font-afacad !text-4xl font-bold text-foreground">{title}</FieldLegend>
-            <FieldDescription className="font-roboto text-foreground font-light">{description}</FieldDescription>
+            <FieldDescription className="font-roboto text-foreground font-light text-lg">{description}</FieldDescription>
         </FieldSet>
     )
 }

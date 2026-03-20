@@ -3,27 +3,12 @@ import { FieldSet, FieldLabel } from "@/components/ui/field";
 import { InputInvalid } from "@/components/ui/inputinvalid";
 
 interface FormFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
-    // only add your CUSTOM props here, native ones like
-    // onFocus, onChange, placeholder, type, etc. are inherited
     label: string,
     classes: string,
     isError: boolean,
     errorLabel: string,
     errorDescription: string,
 }
-// interface FormFieldProps {
-//     label: string,
-//     placeholder: string,
-//     type: string,
-//     value: string,
-//     name: string,
-//     classes: string,
-//     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
-//     onFocus: (e: React.FocusEvent<HTMLInputElement>) => void,
-//     isError: boolean,
-//     errorLabel: string,
-//     errorDescription: string,
-// }
 
 export default function FormField(
     { label, classes, isError = false, errorLabel, errorDescription, ...props }: FormFieldProps

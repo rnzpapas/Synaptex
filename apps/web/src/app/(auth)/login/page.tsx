@@ -9,21 +9,22 @@ import Link from "next/link";
 import Image from "next/image";
 import { Checkbox } from "@/components/ui/checkbox"
 import { FieldGroup, FieldSeparator, FieldSet } from "@/components/ui/field";
-
+import { validateEmail } from "../../../../../../packages/utils/src/validators/index";
 interface UserProps {
     email: string,
     password: string
 }
 interface FieldErrorsProps {
     field: string,
-    isError: boolean
+    isError: boolean,
+    errorDescription: string
 }
 export default function Page() {
     const router = useRouter();
     const [user, setUser] = useState<UserProps>({ email: "", password: "" })
     const [showNextField, setShowNextField] = useState<boolean>(false);
     const [showPassword, setShowPassword] = useState<boolean>(false);
-    const [fieldErrors, setFieldErrors] = useState<FieldErrorsProps>({ field: "", isError: false });
+    const [fieldErrors, setFieldErrors] = useState<FieldErrorsProps>({ field: "", isError: false, errorDescription: "" });
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setUser({ ...user, [e.target.name]: e.target.value })
@@ -31,11 +32,11 @@ export default function Page() {
 
     const onNextHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        if (user.email.length > 0) {
+        if (user.email.length > 0 && validateEmail(user.email)) {
             setShowNextField(true);
             return
         }
-        setFieldErrors({ field: "email", isError: true });
+        setFieldErrors({ field: "email", isError: true, errorDescription: "Please enter a valid email address" });
     }
 
     const onLoginHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -44,12 +45,12 @@ export default function Page() {
             router.push("/dashboard");
             return
         }
-        setFieldErrors({ field: "password", isError: true });
+        setFieldErrors({ field: "password", isError: true, errorDescription: "Please enter a valid password" });
     }
 
     const onFocusHandler = (e: React.FocusEvent<HTMLInputElement>) => {
         if (fieldErrors.field === e.target.name) {
-            setFieldErrors({ field: "", isError: false });
+            setFieldErrors({ field: "", isError: false, errorDescription: "" });
         }
     }
     return (
@@ -74,7 +75,7 @@ export default function Page() {
                             onFocus={onFocusHandler}
                             isError={fieldErrors.field === "email" && fieldErrors.isError}
                             errorLabel={fieldErrors.field === "email" && fieldErrors.isError ? "Invalid Email" : ""}
-                            errorDescription={fieldErrors.field === "email" && fieldErrors.isError ? "Please enter a valid email address" : ""}
+                            errorDescription={fieldErrors.field === "email" && fieldErrors.isError ? fieldErrors.errorDescription : ""}
                         />
                     </FieldSet>
                     <div className={`${showNextField ? 'flex gap-x-[8px]' : 'hidden'}`}>
@@ -92,7 +93,7 @@ export default function Page() {
                         onFocus={onFocusHandler}
                         isError={fieldErrors.field === "password" && fieldErrors.isError}
                         errorLabel={fieldErrors.field === "password" && fieldErrors.isError ? "Invalid Password" : ""}
-                        errorDescription={fieldErrors.field === "password" && fieldErrors.isError ? "Please enter a valid password" : ""}
+                        errorDescription={fieldErrors.field === "password" && fieldErrors.isError ? fieldErrors.errorDescription : ""}
                     />
                     <div className={`${showNextField ? 'flex justify-between items-center' : 'hidden'}`}>
                         <div className="flex justify-center items-center gap-x-[10px]">
