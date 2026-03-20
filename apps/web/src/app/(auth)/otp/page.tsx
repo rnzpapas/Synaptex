@@ -10,8 +10,10 @@ import AuthHeader from "@/app/(auth)/_components/AuthHeader"
 import { Button } from "@/components/ui/button"
 import { FieldGroup } from "@/components/ui/field"
 import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 
 export default function Page() {
+    const router = useRouter();
     const [otp, setOtp] = useState<string>("")
     const [countdown, setCountdown] = useState<number>(0)
 
@@ -25,6 +27,7 @@ export default function Page() {
     const onSubmitHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         console.log("Submitting OTP:", otp);
+        router.push("/forgot-password");
     }
 
     const onResendHandler = () => {

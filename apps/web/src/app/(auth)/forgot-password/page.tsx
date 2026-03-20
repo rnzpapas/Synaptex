@@ -6,6 +6,7 @@ import FormField from "@/app/(auth)/_components/FormField";
 import { useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 interface PasswordProps {
     value: string,
@@ -20,6 +21,7 @@ interface PasswordObjProps {
 }
 
 export default function Page() {
+    const router = useRouter();
     const [passwords, setPasswords] = useState<PasswordObjProps>({
         newPassword: { value: "", showPassword: false, isError: false, errorDescription: "" },
         confirmPassword: { value: "", showPassword: false, isError: false, errorDescription: "" }
@@ -39,6 +41,7 @@ export default function Page() {
     const onSubmitHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         // Add submit logic here
+        router.push("/login")
     }
 
     return (
@@ -66,9 +69,9 @@ export default function Page() {
                     />
                     <div className="flex justify-between items-center">
                         <div className="flex justify-center items-center gap-x-[10px]">
-                            <Checkbox 
-                                checked={passwords.newPassword.showPassword} 
-                                onCheckedChange={() => setPasswords(prev => ({ ...prev, newPassword: { ...prev.newPassword, showPassword: !prev.newPassword.showPassword } }))} 
+                            <Checkbox
+                                checked={passwords.newPassword.showPassword}
+                                onCheckedChange={() => setPasswords(prev => ({ ...prev, newPassword: { ...prev.newPassword, showPassword: !prev.newPassword.showPassword } }))}
                             />
                             <p>Show Password</p>
                         </div>
@@ -90,9 +93,9 @@ export default function Page() {
                     />
                     <div className="flex justify-between items-center">
                         <div className="flex justify-center items-center gap-x-[10px]">
-                            <Checkbox 
-                                checked={passwords.confirmPassword.showPassword} 
-                                onCheckedChange={() => setPasswords(prev => ({ ...prev, confirmPassword: { ...prev.confirmPassword, showPassword: !prev.confirmPassword.showPassword } }))} 
+                            <Checkbox
+                                checked={passwords.confirmPassword.showPassword}
+                                onCheckedChange={() => setPasswords(prev => ({ ...prev, confirmPassword: { ...prev.confirmPassword, showPassword: !prev.confirmPassword.showPassword } }))}
                             />
                             <p>Show Password</p>
                         </div>

@@ -100,7 +100,7 @@ export default function Page() {
                             <Checkbox checked={showPassword} onCheckedChange={() => setShowPassword(!showPassword)} />
                             <p>Show Password</p>
                         </div>
-                        <Link href={"/forgot-password"} className={`${showNextField ? "-top-2 text-end font-roboto text-md font-semibold text-foreground !text-[#1C55CF]" : "hidden"}`}> Forgot Password? </Link>
+                        <Link href={"/otp"} className={`${showNextField ? "-top-2 text-end font-roboto text-md font-semibold text-foreground !text-[#1C55CF]" : "hidden"}`}> Forgot Password? </Link>
                     </div>
                     <Button type={showNextField ? 'submit' : 'button'} className="w-full font-roboto text-lg font-semibold py-6 rounded-none bg-[#1C55CF]" onClick={(e) => showNextField ? onLoginHandler(e) : onNextHandler(e)}> {showNextField ? "Login" : "Next"} </Button>
                 </FieldGroup>
