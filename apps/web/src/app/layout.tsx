@@ -3,7 +3,7 @@ import { Afacad, Roboto, Geist } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 const afacad = Afacad({
   variable: "--font-afacad",
