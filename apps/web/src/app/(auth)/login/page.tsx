@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import AuthHeader from "@/app/(auth)/_components/AuthHeader";
 import FormField from "../_components/FormField";
 import { Button } from "@/components/ui/button";
@@ -10,6 +10,8 @@ import Image from "next/image";
 import { Checkbox } from "@/components/ui/checkbox"
 import { FieldGroup, FieldSeparator, FieldSet } from "@/components/ui/field";
 import { validateEmail } from "../../../../../../packages/utils/src/validators/index";
+import { signIn } from "next-auth/react";
+
 interface UserProps {
     email: string,
     password: string
@@ -52,6 +54,19 @@ export default function Page() {
         if (fieldErrors.field === e.target.name) {
             setFieldErrors({ field: "", isError: false, errorDescription: "" });
         }
+    }
+
+    const handleGoogleSignIn = async () => {
+        console.log("Google Sign In");
+        await signIn("google", {
+            callbackUrl: "/dashboard"
+        });
+    }
+    const handleGithubSignIn = async () => {
+        console.log("Github Sign In");
+        await signIn("github", {
+            callbackUrl: "/dashboard"
+        });
     }
     return (
         <div className={`flex flex-col ${showNextField ? 'gap-y-[20px]' : 'gap-y-[30px]'}`}>
@@ -111,11 +126,11 @@ export default function Page() {
                 <FieldSeparator className="w-full h-[2px] bg-[#E4E4E7]" />
             </div>
             <div className="flex flex-col gap-y-[20px]">
-                <Button className="flex justify-center items-center gap-x-[14px] w-full font-roboto text-foreground text-lg font-semibold py-6 rounded-none bg-[#fff] border border-[#E4E4E7]">
+                <Button className="flex justify-center items-center gap-x-[14px] w-full font-roboto text-foreground text-lg font-semibold py-6 rounded-none bg-[#fff] border border-[#E4E4E7]" onClick={handleGoogleSignIn}>
                     <Image src="/google.svg" alt="Google" width={30} height={30} />
                     Sign in with Google
                 </Button>
-                <Button className="flex justify-center items-center gap-x-[14px] w-full font-roboto text-[#fff] text-lg font-semibold py-6 rounded-none bg-[#000] border border-[#E4E4E7]">
+                <Button className="flex justify-center items-center gap-x-[14px] w-full font-roboto text-[#fff] text-lg font-semibold py-6 rounded-none bg-[#000] border border-[#E4E4E7]" onClick={handleGithubSignIn}>
                     <Image src="/github.svg" alt="Google" width={30} height={30} className="invert" />
                     Sign in with Github
                 </Button>
