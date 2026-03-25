@@ -1,9 +1,15 @@
-import NextAuth, { NextAuthOptions } from "next-auth"
+import NextAuth, { NextAuthOptions, DefaultSession } from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 import GithubProvider from "next-auth/providers/github"
 
-console.log(process.env.GOOGLE_CLIENT_ID)
-console.log(process.env.GOOGLE_CLIENT_SECRET)
+declare module "next-auth" {
+    interface Session {
+        user: {
+            id: string
+        } & DefaultSession["user"]
+    }
+}
+
 const authOption: NextAuthOptions = {
     session: {
         strategy: "jwt"
@@ -23,12 +29,16 @@ const authOption: NextAuthOptions = {
             // Attach user ID to session
             if (session.user) {
                 session.user.id = token.sub as string
+                session.user.email = token.email as string
+                session.user.name = token.name as string
             }
             return session
         },
         async jwt({ token, account }) {
             if (account) {
                 token.accessToken = account.access_token
+                token.id = account.providerAccountId
+                token.name = account.provider
             }
             return token
         },
